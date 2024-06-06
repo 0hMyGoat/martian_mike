@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5tnxk0k15s7"]
+
+[ext_resource type="PackedScene" uid="uid://v7j8obaukiav" path="res://scenes/bg.tscn" id="1_adunl"]
+[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_qvuxb"]
+[ext_resource type="Texture2D" uid="uid://8b44f3io673r" path="res://assets/textures/bg/Blue.png" id="2_5ppwv"]
+[ext_resource type="FontFile" uid="uid://c8dpktq621tta" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_25vpg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_evnvx"]
+font = ExtResource("3_25vpg")
+font_size = 35
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvuxb")
+
+[node name="BG" parent="." instance=ExtResource("1_adunl")]
+bg_texture = ExtResource("2_5ppwv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.0
+offset_top = 45.0
+offset_right = 160.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "Martian Mike !"
+label_settings = SubResource("LabelSettings_evnvx")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -18.0
+offset_right = 148.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_25vpg")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 34.0
+offset_right = 148.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_25vpg")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
